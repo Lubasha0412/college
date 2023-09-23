@@ -11,7 +11,7 @@
     }
     catch (PDOException $e) {
         echo "Ошибка подключения: " . $e->getMessage();
-    }
+    } 
 
     $result = $connection->query('SELECT * FROM `product`');
 
@@ -22,28 +22,26 @@
         } 
         
         else {
-        echo '<table cellspacing="1" bgcolor="#000000">';
-            echo '<tr bgcolor="#gren">';
-            for ($i=0; $i < $result ->columnCount (); $i++)
-                {$column=$result ->getColumnMeta($i);
-                echo "<th>{$column['name']}</th>";
+            echo '<table cellspacing="1" bgcolor="#000000">';
+                echo '<tr bgcolor="#gren">';
+                for ($i=0; $i < $result ->columnCount (); $i++)
+                    {$column=$result ->getColumnMeta($i);
+                    echo "<th>{$column['name']}</th>";
+                    }
+                echo '</tr>';
+
+            while($row = $result->fetch( PDO::FETCH_ASSOC )){
+                echo '<tr bgcolor="#ffffff">';
+                    foreach ($row as $key => $value) {
+                    echo '<td >'.$value.'</td>';
                 }
             echo '</tr>';
-
-        while($row = $result->fetch( PDO::FETCH_ASSOC )){
-            echo '<tr bgcolor="#ffffff">';
-                foreach ($row as $key => $value) {
-                echo '<td >'.$value.'</td>';
+            } 
+            echo '</table>';} 
             }
-        echo '</tr>';
-        } 
-        echo '</table>';} 
-        }
 
     else {
         echo 'Запрос выполнен с ошибкой';
     }
 ?>   
     
-
-?>
