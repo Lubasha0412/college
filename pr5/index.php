@@ -37,8 +37,9 @@
                 }
             echo '</tr>';
             } 
-            echo '</table>';} 
-            }
+            echo '</table>';
+        } 
+    }
 
     else {
         echo 'Запрос выполнен с ошибкой';
