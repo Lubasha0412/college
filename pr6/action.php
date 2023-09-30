@@ -13,6 +13,9 @@
 
                 if($_POST['age']<0) exit ("Ваш возраст введено отрицательное или НЕ числовое значение");
 
+                if(empty($_POST['age'])) exit('Не все поля формы заполнены');
+                if(empty($_POST['name'])) exit('Не все поля формы заполнены');
+                
             echo 'Здравствуйте, '.htmlspecialchars($_POST['name']).'. <br>';
             echo 'Вам '.(int)$_POST['age'].' лет.'.'<br>';
         }
