@@ -17,10 +17,12 @@
 
             if($_POST['password'] !== $_POST['password1']) exit('Пароли не совпадают');
 
-            
-
+            include("index.php");
+            $len = strlen($_POST["password"]);
+            if($len < 8) exit ('Минимальное количесво значенией 8. Введите пароль занова');
+            else{
             echo 'Здравствуйте, '.htmlspecialchars($_POST['login']).'. <br>';
-            echo 'Ваш акаун создан';
+            echo 'Ваш акаун создан';}
         }
     ?>
 </body>
