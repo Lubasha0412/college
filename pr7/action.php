@@ -37,7 +37,7 @@
         }
 
         if( $row[0] > 0){
-        exit( "Ошибка регистрации… (Пользователь уже существует)".'<br>'.$link);
+            exit( "Ошибка регистрации… (Пользователь уже существует)".'<br>'.$link);
         }
 
         $pas_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
@@ -48,9 +48,7 @@
         $res = $connection->prepare("INSERT INTO `user` (`login`,`mail`,`pasword`) VALUES (?,?,?);");
         $res = $res->execute($data);
 
-        if ($res) {exit ('Регистрация прошла успешно'.'<br>'.$link);
-        }
-        exit ('Ошибка регисьтрации'.'<br>'.$link);
+        if ($res) {exit ('Регистрация прошла успешно'.'<br>'.$link);}
     ?>
 </body>
 </html>
