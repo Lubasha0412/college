@@ -22,8 +22,10 @@
             if(empty($_POST['password'])) exit('Не все поля формы заполнены'.'<br>'.$link);
         }
         
-        $stmt = $connection->prepare("SELECT * FROM `user` WHERE login = :login");
-        $stmt->execute(['login' => $_POST['login']]);
+        $userLogin=$_POST['login'];
+
+        $stmt = $connection->prepare("SELECT * FROM `user` WHERE `login` = ? or `mail` = ?");
+        $stmt->execute([$userLogin, $userLogin]);
         if (!$stmt->rowCount()) {
             exit('Пользователь с такими данными не зарегистрирован'.'<br>'.$link);
             die;
