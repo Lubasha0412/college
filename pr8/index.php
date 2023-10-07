@@ -14,7 +14,7 @@
     <p><span class="error">* обязательное поле</span></p>
 
     <form action="action.php" method="post">
-        <p>Логин:<span class="error">* <input type="text" name="login" required></p>
+        <p>Логин или почта:<span class="error">* <input type="text" name="login" required></p>
         <p>Пароль:<span class="error">* <input type="password" name="password" required></p>
         <p><input type="submit" value="Вход"></p> 
     </form>
