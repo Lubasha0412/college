@@ -30,15 +30,17 @@
             exit('Пользователь с такими данными не зарегистрирован'.'<br>'.$link);
             die;
         }
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        // проверяем пароль
+        
         $userLogin = $_POST['login'];
         $userPassword = $_POST['password'];
-        
-        $select = $connection->prepare("SELECT `password` FROM `user` WHERE `login` = ? or `email` = ?;");
-        $select->execute([$userLogin, $userLogin]);
-        $row = $select->fetch();    
+
+        // проверяем пароль
+        if (password_verify($_POST['password'], $userPassword)) {
+            if (password_needs_rehash($userPassword, PASSWORD_DEFAULT)) {
+                $newHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                $stmt = $connection->prepare('UPDATE `user` SET `password` = :password WHERE `login` = :login');
+                 $stmt->execute(['login' => $_POST['login'],'password' => $newHash,]);
+            }     
         
             exit('Пароль неверен'.'<br>'.$link);
         }
