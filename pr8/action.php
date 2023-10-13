@@ -7,7 +7,9 @@
     <title>pr8</title>
 </head>
 <body>
-    <?php 
+    <?php  
+        session_start ();  
+
         $host       = "db4.myarena.ru";      // Адрес сервера базы данных
         $dbname     = "u19978_b08";    // Имя базы данных
         $user       = "u19978_b08";           // Имя пользователя
@@ -15,6 +17,7 @@
         $connection = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $password);
 
         $link = '<a href = "./index.php">На главную</a>';
+        $link1 = '<a href = "./result.php">Проверить ссесию</a>';
 
         if( $_SERVER['REQUEST_METHOD'] !== 'POST' ) {
             exit;
@@ -22,6 +25,8 @@
             if(empty($_POST['login'])) exit('Не все поля формы заполнены'.'<br>'.$link);
             if(empty($_POST['password'])) exit('Не все поля формы заполнены'.'<br>'.$link);
         }
+
+        $_SESSION ["login"]=$_POST['login']; 
         
         $userLogin=$_POST['login'];
 
@@ -45,7 +50,7 @@
             exit('Пароль неверен'.'<br>'.$link);
         }
         else {
-            exit('Вход выполнен успешно'.'<br>'.$link); 
+            exit('Вход выполнен успешно'.'<br>'.$link1); 
         }
     ?>
 </body>
