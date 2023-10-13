@@ -45,7 +45,7 @@
         $data = [$_POST['login'],$_POST['mail'],$pas_hash];
 
         //Добавление нового пользователя
-        $res = $connection->prepare("INSERT INTO `user` (`login`,`mail`,`pasword`) VALUES (?,?,?);");
+        $res = $connection->prepare("INSERT INTO `user` (`login`,`mail`,`password`) VALUES (?,?,?);");
         $res = $res->execute($data);
 
         if ($res) {exit ('Регистрация прошла успешно'.'<br>'.$link);}
