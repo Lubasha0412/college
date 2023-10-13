@@ -31,7 +31,6 @@
             die;
         }
         
-        $userLogin = $_POST['login'];
         $userPassword = $_POST['password'];
 
         // проверяем пароль
