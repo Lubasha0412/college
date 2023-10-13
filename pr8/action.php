@@ -33,7 +33,7 @@
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         // проверяем пароль
-        if (password_verify($user['password'])) {
+        if (password_verify($_POST['password'], $user['password'])) {
             if (password_needs_rehash($user['password'], PASSWORD_DEFAULT)) {
                 $newHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
                 $stmt = $connection->prepare('UPDATE `user` SET `password` = :password WHERE `login` = :login');
