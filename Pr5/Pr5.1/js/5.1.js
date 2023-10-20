@@ -1,18 +1,21 @@
-let a = prompt('Введите логин');
+let log = prompt('Введите логин');
 
 
-if (a == 'Админ') {
-    let b = prompt('Пароль')
-} else if (a != 'Админ') {
+if (log == 'Админ') {
+} else  if (log=='' || log==null){
+    alert ("Отменено")
+}
+else {
     alert ("Неверный логин")
-}else {
-    alert ("Отменено") 
 }
 
-if (b == 'Я главный') {
+let password = prompt('Введите пароль');
+
+if ( password == 'Я главный') {
     alert ("Здравствуйте!")
-} else if (b != 'Я главный') {
-    alert ("Неверный логин")
-}else {
-    alert ("Отменено") 
+} else  if (password  == '' || password == null){
+    alert ("Отменено")
+}
+else {
+    alert ("Неверный пароль")
 }
