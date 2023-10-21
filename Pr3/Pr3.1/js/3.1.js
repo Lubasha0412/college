@@ -3,7 +3,7 @@ let a = prompt("Введите первое число"),
 
 let c = (+a + +b);
 
-let d = (a - b);
+let d = (+a - +b);
 
 let e = (+a * +b);
 
