@@ -1,4 +1,4 @@
-let num = prompt("Введите число")
+let num = prompt("Введите число");
 
 switch (num) {
     case '1':
