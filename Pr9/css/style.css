@@ -1,0 +1,28 @@
+*{
+    background-color: #f3ffe3;
+}
+.header{
+    text-align: center;
+}
+
+.h2{
+    text-align: center;
+    color:blueviolet;
+}
+
+h3{
+    color: blue;  
+}
+
+p{
+    font-style: italic;
+}
+
+.p3{
+    padding-bottom: 2%;
+}
+
+span{
+    color:blueviolet;
+    font-weight: bold;
+}
