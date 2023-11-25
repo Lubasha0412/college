@@ -1,0 +1,9 @@
+#button2 {
+    display: none;
+}
+#button2.is-show {
+    display: flex;
+}
+.img.is-show{
+    display: block;
+}
