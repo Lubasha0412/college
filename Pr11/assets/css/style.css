@@ -1,0 +1,11 @@
+.image-subtitle {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    max-height: calc(2em + 1.25rem * 2);
+    background: #ffffff63;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+}
